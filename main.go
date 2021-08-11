@@ -29,6 +29,9 @@ func main() {
 	}
 	for _, m := range meas {
 		fmt.Printf("# %s\n", m.URL)
+		fmt.Printf("method: %s\n", m.RoundTrip.Request.Method)
+		fmt.Printf("url: %s\n", m.RoundTrip.Request.URL.String())
+		fmt.Printf("headers: %+v\n", m.RoundTrip.Request.Header)
 		fmt.Printf("dns: %+v\n", m.DNS)
 		for _, e := range m.Endpoints {
 			fmt.Printf("## %s\n", e.Endpoint)
